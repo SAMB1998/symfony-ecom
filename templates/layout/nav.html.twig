@@ -1,0 +1,99 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+  <div class="container">
+    <a class="navbar-brand" href="#">My shop</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarScroll">
+      <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{{path('app_home')}}">Home</a>
+        </li>
+
+        {% if categories is defined %}
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              categories
+            </a>
+            <ul class="dropdown-menu">
+              {% for category in categories %}
+                <li><a class="dropdown-item text-success" style="font-weight: bolder" href="#">{{ category.name }}</a></li>
+                  {% for subCategory in category.subCategories %}
+                    <li><a class="dropdown-item" href="{{ path('app_home_product_filter',{'id':subCategory.id})}}">{{ subCategory.name }}</a></li>
+                  {% endfor %}
+                <li><hr class="dropdown-divider"></li>
+              {% endfor %}
+            </ul>
+          </li>
+        {% endif %}
+
+        {% if is_granted("ROLE_ADMIN") %}
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              administration
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="{{ path('app_category') }}">Catégories</a></li>
+              <li><a class="dropdown-item" href="{{ path('app_category_new') }}">Ajouter une catégorie</a></li>
+              <li><a class="dropdown-item" href="{{ path('app_sub_category_index') }}">Sous catégories</a></li>
+              <li><a class="dropdown-item" href="{{ path('app_sub_category_new') }}">Créer une sous catégories</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="{{ path('app_product_index') }}">Produit</a></li>
+              <li><hr class="dropdown-divider"></li>
+
+              <li><a class="dropdown-item" href="{{ path('app_user')}}">Utilisateurs</a></li>
+            </ul>
+          </li>
+          <li><a href="{{ path('app_cart')}}">Panier</a></li>
+        {% endif %}
+
+        {% if app.user == false %}
+          <li class="nav-item">
+            <a href="{{ path('app_register')}}" class="nav-link">S'inscrire</a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ path('app_login')}}" class="nav-link">Se connecter</a>
+          </li>
+        {% endif %}
+      </ul>
+      <form class="d-flex" role="search">
+
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+        <header>
+                <div class="logo">
+                  <a class="nav-link active" aria-current="page" href="{{path('app_home')}}"><img src="{{ asset('assets/Logo.png') }}" alt=""></a>
+                </div>
+                <div class="titre">
+                  {% block title %}{{ page_title }}{% endblock %}
+                </div>
+                <div class="nav-block">
+                        <nav class="navigation__menu">
+                                <ul>
+                                        <a href="{{path('app_home')}}"><li>Accueil</li></a>
+                                        {% if app.user == true %}
+                                          <a href=""><li>Boutique</li></a>
+                                          <li><a href="{{ path('app_cart')}}">Panier</a></li>
+                                        {% endif %}
+                                        {% if app.user == false %}
+                                          <li class="nav-item">
+                                            <a href="{{ path('app_register')}}" class="nav-link">S'inscrire</a>
+                                          </li>
+                                          <li class="nav-item">
+                                            <a href="{{ path('app_login')}}" class="nav-link">Se connecter</a>
+                                          </li>
+                                        {% endif %}
+                                        {% if app.user == true %}
+                                          <li class="nav-item">
+                                            <a href="{{ path('app_logout')}}" class="nav-link">Se Deconnecter</a>
+                                          </li>
+                                        {% endif %}
+                                </ul>
+                        </nav>
+                </div>
+        </header>

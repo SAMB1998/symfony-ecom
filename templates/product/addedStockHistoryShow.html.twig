@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+        <div class="container">
+                <table class="table">
+                        <tr>
+                                <th>id</th>
+                                <th>quantité</th>
+                                <th>date d'ajout</th>
+                        </tr>
+                        {% for productAdded in productsAdded %}
+                        <tr>
+                                <th>{{ productAdded.id }}</th>
+                                <th>{{ productAdded.qte }}</th>
+                                <th>{{ productAdded.createdAt|date('d-m-y H:i:s') }}</th>
+                        </tr>
+                        {% endfor %}
+                </table>
+        </div>
+{% endblock %}

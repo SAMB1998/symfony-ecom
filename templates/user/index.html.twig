@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Utilisateurs{% endblock %}
+
+{% block body %}
+<div class="container"><br>
+
+    <h1>Utilisateurs</h1><br>
+    {% include 'layout/_flash_message.html.twig'%}
+    <table class="table">
+        <tr>
+            <th>id</th>
+            <th>email</th>
+            <th>nom</th>
+            <th>Adress de livraison</th>
+            <th>role</th>
+            <th>action</th>
+        </tr>
+        {% for user in users %}
+            <tr>
+                <th>{{user.id}}</th>
+                <th>{{user.email}}</th>
+                <th>{{user.lastName}}</th>
+                <th>{{user.deliveryAdress}}</th>
+                <td>
+                    {% if ('ROLE_ADMIN' in user.roles) %}
+                        <span class="text-primary">administrateur</span>
+                    {% elseif ('ROLE_EDITOR' in user.roles)  %}
+                        <span class="text-success">éditeur</span>
+                    {% else %}
+                        <span class="text-secondary">client</span>
+                    {% endif %}
+                </td>
+                <td>
+                {% if ('ROLE_ADMIN' in user.roles ) == false %}
+
+                    {% if ('ROLE_EDITOR' in user.roles) == false %}
+                        <a onclick="return confirm('voulez vous vraiment affecter le role éditeur à cette utilisateur ?')" class="btn btn-outline-primary" href="{{ path('app_user_to_editor',{'id':user.id})}}">Ajouter comme éditeur</a>
+                    {% else %}
+                        <a onclick="return confirm('voulez vous vraiment retirer le role éditeur à cette utilisateur ?')" class="btn btn-danger" href="{{ path('app_user_remove_editor_role',{'id':user.id})}}">Retirer comme éditeur</a>
+                    {% endif %}
+                    
+                    <a  onclick="return confirm('voulez vous vraiment supprimer cette utilisateur ?')" href="{{ path('app_user_remove',{'id':user.id})}}" class="btn btn-danger">supprimer</a>
+                {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{{ form_start(form) }}
+    {{ form_row(form.name,{'attr':{'class': 'form form-control'}}) }}<br>
+    {{ form_row(form.size, {'attr':{'class':'form form-control'}}) }}<br>
+    {{ form_row(form.description, {'attr':{'class':'form form-control'}}) }}<br>
+    {{ form_row(form.price, {'attr':{'class':'form form-control'}}) }}<br>
+    {{ form_row(form.subCategories, {'attr':{'class':'form form-control'}}) }}<br>
+    
+    {% if button_label != "Update" %}
+        {{ form_row(form.stock, {'attr':{'class':'form form-control'}}) }}<br>
+    {% endif %}
+    
+    {{ form_row(form.image, {'attr':{'class':'form'}}) }}<br>
+    <button class="btn btn-outline-primary btn-block">{{ button_label|default('Save') }}</button><br><br>
+{{ form_end(form) }}

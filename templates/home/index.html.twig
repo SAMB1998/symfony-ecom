@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+
+<div class="container-back">
+    {% for product in products %}
+        <div class="card__t-shirt">
+            <div class="card__t-shirt__img">
+                <img src="{{ asset('uploads/images/'~product.image)}}" alt="" class="image">  
+            </div>
+            <div class="card__t-shirt__info">
+                <p class="name">Nom : {{ product.name }}</p>
+                <p class="price">Prix : {{ product.price }} €</p>
+            </div>
+            {% if app.user == true %}
+                <a href="{{path('app_home_product_show',{'id':product.id})}}" class="btn btn-outline-primary button">Voir</a>
+            {% endif %}
+        </div>
+        {% endfor %}  
+</div> 
+<br>
+
+{% endblock %}

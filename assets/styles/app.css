@@ -1,0 +1,204 @@
+.login-form{
+    width: 500px;
+}
+.btn-block{
+    width: 500px;
+    background-color: rgb(74, 74, 199);
+}
+.security-form{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    height: 100vh;
+}
+h1,h2{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.titre{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.6em;
+    padding: 10px;
+    border: 1px solid black;
+}
+
+/* Header */
+header{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    border-bottom: solid 1px black;
+    margin-bottom: 40px;
+}
+.logo img{
+    width: 150px;
+}
+.nav-block{
+    display: flex;
+    justify-content: space-between;
+    gap: 60px;
+}
+.navigation__menu ul, a{
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    list-style: none;
+    color: black;
+    gap: 25px;
+    font-size: 1.1em;
+}
+.connexion{
+    font-size: 1.1em;
+}
+/* End Header */
+
+/* Body */
+.container-back{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 100px;
+    gap: 20px;
+}
+.card__t-shirt{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    border: solid 1px black;
+    width: 350px;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+}
+.card__t-shirt__img{
+    width: 100%;
+    margin-bottom: 20px;
+}
+.card__t-shirt__img img{
+    width: 300px;
+}
+.card__t-shirt button{
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.card__t-shirt__info p{
+    font-size: 1.3em;
+}
+/* End body */
+
+/* Footer */
+footer{
+    border: solid 1px black;
+}
+
+/* Back Office */
+.back-off__prod{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 1400px;
+}
+.back-off__prod__img img{
+    width: 100px;
+    padding: 30px;
+}
+.back-off__prod__info{
+    display: flex;
+    flex-wrap: wrap;
+}
+.prod__info__item__block{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    /* gap: 10px; */
+}
+.prod__info__item__button {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%; 
+    margin-bottom: 50px;
+}
+
+.back-off__prod__button {
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+.label{
+    background-color: rgb(227, 227, 233);
+    width: 100px;
+    height: 30px;
+    padding: 5px;
+}
+.back-off__prod__button button{
+    width: 150px;
+    padding: 14px;
+    border-radius: 5px;
+    background-color: rgb(23, 84, 208);
+    color: azure;
+    border: none;
+}
+
+/* End BackOffice */
+
+/* Formulaire de connexion */
+.connexion-form{
+    border: 1px solid black;
+    padding: 10px;
+}
+.connexion-form h3{
+    margin-bottom: 10px;
+}
+.connexion-form hr{
+    border: 2px solid rgb(135, 177, 209);
+}
+.form-group{
+    display: flex;
+    flex-wrap: wrap;
+}
+.form-group label{
+    margin-top: 5px;
+}
+.label-form{
+    width: 100%;
+}
+input{
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.form-group button{
+    padding: 10px;
+    background-color:  rgb(81, 128, 223);
+    color: #FFF;
+    border: none;
+    border-radius:5px ;
+    margin-bottom: 10px;
+}
+.forget{
+    color:rgb(81, 128, 223);
+    margin-bottom: 10px;
+}
+hr{
+    margin-bottom: 10px;
+}
+.label-inscription{
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+/* Formulaire d'inscription */
+.adressmail{
+    margin-bottom: 40px;
+}
+.livraison{
+    margin-bottom: 50px;
+}
